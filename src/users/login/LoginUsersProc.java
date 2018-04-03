@@ -12,8 +12,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import jdbc.MySQLConnector;
+import users.vo.MemberBean;
 
 /**
  * Servlet implementation class LoginUsersProc
@@ -49,28 +51,22 @@ public class LoginUsersProc extends HttpServlet {
 		String _URL = null;
 		
 		if(_USERID.trim().length()==0 ||_USERID==null||_USERPW==null ||_USERPW.trim().length()==0 ) {
-			_MESSAGE = "아이디를 입력하세요";
+			_MESSAGE = "아이디와 비밀번호를 모두 입력하세요";
 			_URL = "/users/login/loginForm.do";
-		}else {
-			MySQLConnector mysql = new MySQLConnector();
-			Connection conn = mysql.getConnection();
-			
-			String query = "select * from member where userid='%userid%' and userpw ='%userpw%'";
-			query = query.replace("%userid%", _USERID);
-			query = query.replace("%userpw%", _USERPW);
-			ResultSet rs = mysql.select(query, conn);
-			try {
-				if(rs.next()) { // 아이디와 비밀번호가 일치하는게 존재할때 로그인 성공.
-					_MESSAGE = "로그인에 성공하였습니다.";
-					_URL = "/main.jsp";
-				}else {
-					_MESSAGE = "아이디 혹은 비밀번호가 다릅니다";
-					_URL = "/users/login/loginForm.do";
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				System.out.println("쿼리문을 확인하세요. query : " + query);
+		}else { // 아이디와 비밀번호가 입력이 되었음
+			MemberBean memberVO = memberCheck(_USERID);
+			if(memberVO.getUserpw().equals(_USERPW)) { // 아이디와 같이 저장되어있는 비밀번호가 일치한다면
+				_MESSAGE = memberVO.getName()+ " 회원님의 로그인이 완료되었습니다.";
+				HttpSession session = req.getSession();
+				session.setAttribute("memberVO", memberVO);
+				_URL = "/main.jsp";
+
+			}else { // 비밀번호가 일치하지 않을때
+				_MESSAGE = "아이디 혹은 비밀번호가 일치하지 않습니다. <br> 입력하세요";
+				_URL = "/users/login/loginForm.do";
+
 			}
+			
 		}
 		
 		
@@ -89,5 +85,35 @@ public class LoginUsersProc extends HttpServlet {
 		out.write("location.href='"+url+"'");
 		out.write("</script>");
 	}
+	
+	public MemberBean memberCheck(String userid) {
+		MemberBean memberVO = null;
+		// DB 객체 생성
+		MySQLConnector mysql = new MySQLConnector();
+		// 연결 객체 생성
+		Connection conn = mysql.getConnection();
+		// 쿼리문 작성
+		String query = "select * from member where userid='%userid%'";
+		query = query.replace("%userid%",userid);
+		ResultSet rs = mysql.select(query, conn);
+		try {
+			if(rs.next()) {
+				memberVO = new MemberBean();
+				memberVO.setIdx(rs.getInt("idx"));
+				memberVO.setUserid(rs.getString("userid"));
+				memberVO.setUserpw(rs.getString("userpw"));
+				memberVO.setName(rs.getString("name"));
+				memberVO.setEmail(rs.getString("email"));
+				memberVO.setReg_dt(rs.getString("reg_dt"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return memberVO;
+	}
+	
+	
 
 }
