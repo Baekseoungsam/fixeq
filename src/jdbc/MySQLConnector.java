@@ -10,12 +10,13 @@ import java.sql.SQLException;
 
 public class MySQLConnector {
 
-	private String dbURL = "jdbc:mysql://localhost:3307/member";
+	private String dbURL = "jdbc:mysql://localhost:3306/fixeq";
 	private String dbUSER = "root";
 	private String dbPASSWORD = "123456";
 	private Connection conn = null;
 	private Statement stmt = null;
 	private ResultSet rs = null;
+
 	
 	public MySQLConnector() {
 		try {
@@ -23,7 +24,7 @@ public class MySQLConnector {
 		}catch(ClassNotFoundException e) {
 			System.out.println("라이브러리를 찾지 못하였습니다 : "+ e);
 		}try {
-			DriverManager.getConnection(dbURL, dbUSER, dbPASSWORD);
+			conn = DriverManager.getConnection(dbURL, dbUSER, dbPASSWORD);
 		}catch(Exception e) {
 			System.out.println("MySQL 연결에 실패하였습니다.");
 			System.out.println("1. URL 정보를 다시 확인하세요.");

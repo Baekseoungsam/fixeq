@@ -11,6 +11,23 @@
 </head>
 <body>
 
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Fixeq</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item">
+	        <a class="nav-link" href="/users/login/loginForm.do">Login</a>
+	      </li>
+
+	    </ul>
+		  </div>
+	</nav>
+<!-- ============================================================================================ -->
+
 <div class="jumbotron">
 
 	<br>
@@ -20,22 +37,22 @@
 	<form action="/users/join/joinProc.do" method="post">
 	  <div class="form-group">
 	    <label for="userid">아이디</label>
-	    <input type="text" class="form-control" id="userid" aria-describedby="emailHelp" placeholder="Enter your id">
+	    <input type="text" class="form-control" name="userid"  placeholder="Enter your id">
 	  </div>
 	  <div class="form-group">
 	    <label for="userpassword">비밀번호</label>
-	    <input type="password" class="form-control" id="userpw" placeholder="Enter your password">
+	    <input type="password" class="form-control" name="userpw" placeholder="Enter your password">
 	  </div>
 	  <div class="form-group">
 	    <label for="name">이름</label>
-	    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter your name">
+	    <input type="text" class="form-control" name="name"  placeholder="Enter your name">
 	  </div>
 	  <div class="form-group">
-	    <label for="email">아이디</label>
-	    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter your email">
+	    <label for="email">이메일</label>
+	    <input type="email" class="form-control" name="email" placeholder="Enter your email">
 	  </div>
 	  	  
-	  <button type="submit" class="btn btn-primary">회원가입</button>
+		<input type="submit" value="회원가입" class="btn btn-primary"> 
 	</form>
 	
 	<br>

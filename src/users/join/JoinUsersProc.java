@@ -43,9 +43,17 @@ public class JoinUsersProc extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String _USERID = useridValidation(req, res);
-		String _USERPW = userpwVaildation(req, res);
+		if(_USERID == null) return;
+
+		String _USERPW = userpwValidation(req, res);
+		if(_USERPW == null) return;
+
 		String _NAME = req.getParameter("name");
+		if(_NAME == null) return;
+
 		String _EMAIL = useremailValidation(req, res);
+		if(_USERPW == null) return;
+
 		
 		String _MESSAGE = null;
 		String _URL = null;
@@ -53,7 +61,7 @@ public class JoinUsersProc extends HttpServlet {
 		MySQLConnector mysql = new MySQLConnector();
 		Connection conn = mysql.getConnection();
 		
-		String query = "insert into member (userid,userpw,username,useremail,reg_dt) values ('%userid%','%userpw%','%name%','%email%',SYSDATE())";
+		String query = "insert into member (userid,userpw,name,email) values ('%userid%','%userpw%','%name%','%email%')";
 		query = query.replace("%userid%", _USERID);
 		query = query.replace("%userpw%", _USERPW);
 		query = query.replace("%name%", _NAME);
@@ -62,9 +70,10 @@ public class JoinUsersProc extends HttpServlet {
 		mysql.insert(query, conn);
 
 		
-		responseMessage(res, "회원가입을 축하합니다.", "main.jsp");
+		responseMessage(res, "회원가입을 축하합니다.", "/main.jsp");
 		
 	}
+	
 	
 	
 	public String useridValidation(HttpServletRequest req, HttpServletResponse res) throws IOException {
@@ -73,11 +82,14 @@ public class JoinUsersProc extends HttpServlet {
 		String _URL = null;
 		String chkidValid = null;
 		
-		if( _USERID==null ) {
+		if( _USERID==null  || _USERID.trim().length()==0) { // 아이디를 입력하지 않았을때
 			_MESSAGE = "아이디를 작성해야합니다.";
-			_URL = "/users/joinForm.do";
-		}else {
-			if(_USERID.trim().length()>5) {
+			_URL = "/users/join/joinForm.do";
+		}else { // 일단 아이디를 입력했을때
+			if(_USERID.length() < 5) { 
+				_MESSAGE = "아이디는 5자 이상 작성하여야 합니다.";
+				_URL = "/users/join/joinForm.do";
+			}else {
 				// DB 객체 초기화
 				MySQLConnector mysql = new MySQLConnector();
 				// DB 연결 객체 생성
@@ -90,7 +102,7 @@ public class JoinUsersProc extends HttpServlet {
 					try {
 						if(rs.next()) { // 중복일때
 							_MESSAGE = "이미 존재하는 아이디입니다.";
-							_URL = "/users/joinForm.do";
+							_URL = "/users/join/joinForm.do";
 						}else { // 중복이 아닌 경우
 							chkidValid = _USERID;
 						}
@@ -100,81 +112,115 @@ public class JoinUsersProc extends HttpServlet {
 					}
 				
 				
-			}else {
-				_MESSAGE = "아이디는 5자 이상 작성하여야 합니다.";
-				_URL = "/users/joinForm.do";
+			
 			}
 		}
 		
-		responseMessage(res, _MESSAGE, _URL);
+		if(chkidValid == null) {
+			responseMessage(res,_MESSAGE,_URL);
+		}
 		
 		return chkidValid;
 	}
+
 	
-	
-	public String userpwVaildation(HttpServletRequest req, HttpServletResponse res) throws IOException{
+	public String userpwValidation(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		String _USERPW = req.getParameter("userpw");
 		String _MESSAGE = null;
 		String _URL = null;
 		String chkpwValid = null;
 		
-		if(_USERPW==null) {
-			_MESSAGE = "비밀번호를 입력하세요.";
-			_URL =  "/users/joinForm.do";
-		}else {
-			if(_USERPW.trim().length()>5) { // 적합 비밀번호
-				// 비밀번호는 중복 여부 확인을 안해도 상관없으니깐 바로 ㄱㄱ
-				chkpwValid = _USERPW;
-			}else { // 부적합 비밀번호
-				_MESSAGE = "비밀번호를 5글자 이상 입력하세요.";
-				_URL =  "/users/joinForm.do";
+		if( _USERPW==null  || _USERPW.trim().length()==0) { // 비밀번호를 입력하지 않았을때
+			_MESSAGE = "비밀번호를 작성해야합니다.";
+			_URL = "/users/join/joinForm.do";
+		}else { // 일단 아이디를 입력했을때
+			if(_USERPW.length() < 5) { 
+				_MESSAGE = "비밀번호는 5자 이상 작성하여야 합니다.";
+				_URL = "/users/join/joinForm.do";
+			}else {
+				// DB 객체 초기화
+				MySQLConnector mysql = new MySQLConnector();
+				// DB 연결 객체 생성
+				Connection conn = mysql.getConnection();
+				// DB에 쿼리문 실행
+				String query = "select * from member where userpw='"+ _USERPW +"';";
+				// 쿼리문 실행 결과를 변수에 저장
+				ResultSet rs = mysql.select(query, conn);
+				// 변수의 결과값에 따른 조건 분기
+					try {
+						if(rs.next()) { // 중복일때
+							_MESSAGE = "이미 존재하는 비밀번호입니다.";
+							_URL = "/users/join/joinForm.do";
+						}else { // 중복이 아닌 경우
+							chkpwValid = _USERPW;
+						}
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						System.out.println("쿼리문에 에러을 확인하세요. query : " + query);
+					}
+				
+				
+			
 			}
 		}
-		
-		responseMessage(res, _MESSAGE,_URL);
+		if(chkpwValid == null) {
+			responseMessage(res,_MESSAGE,_URL);
+		}
 		
 		return chkpwValid;
 	}
+
 	
-	public String useremailValidation(HttpServletRequest req,HttpServletResponse res) throws IOException{
-		String _EMAIL = req.getParameter("email");
+	public String useremailValidation(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		String _USEREMAIL = req.getParameter("email");
 		String _MESSAGE = null;
 		String _URL = null;
 		String chkemailValid = null;
 		
-		if(_EMAIL == null) {
-			_MESSAGE = "이메일을 입력하세요.";
-			_URL =  "/users/joinForm.do";
-		}else { // 이메일을 일단은 작성
-			if(_EMAIL.trim().contains("@")) {
-				// DB 객체 생성
+		if( _USEREMAIL==null  || _USEREMAIL.trim().length()==0) { // 이메일을 입력하지 않았을때
+			_MESSAGE = "이메일을 작성해야합니다.";
+			_URL = "/users/join/joinForm.do";
+		}else { // 일단 이메일을 입력했을때
+			if(_USEREMAIL.length() < 5) { 
+				_MESSAGE = "이메일은 5자 이상 작성하여야 합니다.";
+				_URL = "/users/join/joinForm.do";
+			}else {
+				// DB 객체 초기화
 				MySQLConnector mysql = new MySQLConnector();
 				// DB 연결 객체 생성
 				Connection conn = mysql.getConnection();
-				//쿼리문 작성
-				String query = "select * from member where email='" + _EMAIL + "';";
+				// DB에 쿼리문 실행
+				String query = "select * from member where email='"+ _USEREMAIL +"';";
+				// 쿼리문 실행 결과를 변수에 저장
 				ResultSet rs = mysql.select(query, conn);
+				// 변수의 결과값에 따른 조건 분기
 					try {
 						if(rs.next()) { // 중복일때
-							_MESSAGE = "중복된 이메일입니다.";
-							_URL =  "/users/joinForm.do";
-						}else { // 사용 가능한 이메일
-							chkemailValid = _EMAIL;
+							_MESSAGE = "이미 존재하는 이메일입니다.";
+							_URL = "/users/join/joinForm.do";
+						}else { // 중복이 아닌 경우
+							chkemailValid = _USEREMAIL;
 						}
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
-						System.out.println("쿼리문을 확인하세요. query : " + query);
+						System.out.println("쿼리문에 에러을 확인하세요. query : " + query);
 					}
-			}else {
-				_MESSAGE = "이메일을 입력하세요.";
-				_URL =  "/users/joinForm.do";
-			}
+				
+				
 			
+			}
 		}
 		
-		responseMessage(res, _MESSAGE, _URL);
+		if(chkemailValid == null) {
+			responseMessage(res,_MESSAGE,_URL);
+		}
+		
 		return chkemailValid;
 	}
+
+	
+	
+
 	
 	
 	public void responseMessage(HttpServletResponse res, String message, String url) throws IOException{
