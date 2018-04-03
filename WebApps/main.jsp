@@ -30,7 +30,7 @@ if(memberVO == null){
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item">
-	        <a class="nav-link" href="/users/logOutProc.do">Logout</a>
+	        <a class="nav-link" href="/users/login/logOut.do">Logout</a>
 	      </li>
 
 	    </ul>
