@@ -32,6 +32,10 @@ if(memberVO == null){
 	      <li class="nav-item">
 	        <a class="nav-link" href="/users/login/logOut.do">Logout</a>
 	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="/board/InsertForm.do">Board</a>
+	      </li>
+	      
 
 	    </ul>
 		  </div>
@@ -50,13 +54,13 @@ if(memberVO == null){
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="img-responsive" src="/css/누나2.jpg" alt="밥 잘 사주는 누나2" style="width:100%">
+      <img class="img-responsive" src="/source/image/누나2.jpg" alt="밥 잘 사주는 누나2" style="width:100%">
     </div>
     <div class="carousel-item">
-      <img class="img-responsive" src="/css/누나1.jpg" alt="밥 잘 사주는 누나1" style="width:100%">
+      <img class="img-responsive" src="/source/image/누나1.jpg" alt="밥 잘 사주는 누나1" style="width:100%">
     </div>
     <div class="carousel-item">
-      <img class="img-responsive" src="/css/누나.jpg" alt="밥 잘 사주는 누나" style="width:100%">
+      <img class="img-responsive" src="/source/image/누나.jpg" alt="밥 잘 사주는 누나" style="width:100%">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
