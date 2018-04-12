@@ -1,4 +1,4 @@
-package board;
+package board.dramaList;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -17,7 +17,7 @@ import jdbc.MySQLConnector;
 /**
  * Servlet implementation class prettySisterForm
  */
-@WebServlet("/board/SisterForm.do")
+@WebServlet("/board/dramaList/SisterForm.do")
 public class prettySisterForm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

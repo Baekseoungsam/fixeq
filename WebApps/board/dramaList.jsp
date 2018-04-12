@@ -7,18 +7,23 @@
 <title>드라마 목록</title>
 </head>
 <body>
-	<h1>드라마 리스트</h1>
+	<h1 align="center">드라마 리스트</h1>
 	<table width="100%">
 	<thead align="center">
 		<tr>
-			<td colspan="2">드라마 제목<td>
+			<td><td><td></td>
 		</tr>
 	</thead>
 	
 	<tbody align="center">
 		<tr>
-			<td>밥 잘 사주는 예쁜 누나</td><td><a href="/board/SisterForm.do">입장하기</a></td>
+			<td>밥 잘 사주는 예쁜 누나</td><td><a href="/board/dramaList/SisterForm.do">입장하기</a></td>
 		</tr>
+		
+		<tr>
+			<td>라이브</td><td><a href="/board/dramaList/LiveForm.do">입장하기</a></td>
+		</tr>
+		
 	</tbody>
 	
 	</table>
