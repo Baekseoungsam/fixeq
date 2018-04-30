@@ -29,7 +29,7 @@ public class boardInsertForm extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher rd = request.getRequestDispatcher("/board/board.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/board/summerNoteForm.jsp");
 		rd.forward(request, response);
 	}
 

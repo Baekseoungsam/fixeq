@@ -1,6 +1,7 @@
 package board;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 
 import javax.servlet.ServletException;
@@ -42,6 +43,39 @@ public class boardInsertProc extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session =request.getSession();
 		MemberBean memberVO = (MemberBean)session.getAttribute("memberVO");
+		if(memberVO != null) {
+			String writer = memberVO.getName();// 작성자
+			String title = request.getParameter("title");// 제목
+			String content = request.getParameter("content");// 내용
+				
+				if(title.trim().length()==0) {
+					response.setContentType("text/html");
+					response.setCharacterEncoding("UTF-8");
+					PrintWriter out = response.getWriter();
+					out.write("<script>");
+					out.write("alert('제목을 작성하여야 합니다.');");
+					out.write("location.href='/board/summerNote.jsp';");
+					out.write("</script>");
+				}else if(content.trim().length()==0) {
+					response.setContentType("text/html");
+					response.setCharacterEncoding("UTF-8");
+					PrintWriter out = response.getWriter();
+					out.write("<script>");
+					out.write("alert('내용을 작성하여야 합니다.');");
+					out.write("location.href='/board/summerNote.jsp';");
+					out.write("</script>");
+				}else {
+					
+				}
+		}else {
+			response.setContentType("text/html");
+			response.setCharacterEncoding("UTF-8");
+			PrintWriter out = response.getWriter();
+			out.write("<script>");
+			out.write("alert('로그인 후 사용 가능합니다.');");
+			out.write("location.href='/login/loginForm.do';");
+			out.write("</script>");
+		}
 
 		String writer =  memberVO.getUserid(); // 작성자
 
@@ -75,8 +109,17 @@ public class boardInsertProc extends HttpServlet {
 
 		}
 		
-
-		
 	}
+	public void responseMessage(HttpServletResponse res, String message, String url) throws IOException{
+		res.setCharacterEncoding("text/html");
+		res.setCharacterEncoding("utf-8");
+		PrintWriter out = res.getWriter();
+		
+		out.write("<script>");
+		out.write("alert('"+message+"');");
+		out.write("location.href='"+url+"';");
+		out.write("<script>");
+	}
+
 
 }
