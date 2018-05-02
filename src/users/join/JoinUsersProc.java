@@ -61,7 +61,7 @@ public class JoinUsersProc extends HttpServlet {
 		MySQLConnector mysql = new MySQLConnector();
 		Connection conn = mysql.getConnection();
 		
-		String query = "insert into member (userid,userpw,name,email,reg_dt) values ('%userid%','%userpw%','%name%','%email%',SYSDATE())";
+		String query = "insert into member (userid,userpw,name,email,time) values ('%userid%','%userpw%','%name%','%email%',SYSDATE())";
 		query = query.replace("%userid%", _USERID);
 		query = query.replace("%userpw%", _USERPW);
 		query = query.replace("%name%", _NAME);
