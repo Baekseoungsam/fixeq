@@ -10,9 +10,9 @@ import java.sql.SQLException;
 
 public class MySQLConnector {
 
-	private String dbURL = "jdbc:mysql://localhost:3306/fixeq";
-	private String dbUSER = "root";
-	private String dbPASSWORD = "123456";
+	private String dbURL = "jdbc:mysql://myinstance.ca5naeffrrc7.ap-northeast-2.rds.amazonaws.com:3306/fixeqdatabase";
+	private String dbUSER = "fixeqdbinstance";
+	private String dbPASSWORD = "gustjr12";
 	private Connection conn = null;
 	private Statement stmt = null;
 	private ResultSet rs = null;

@@ -104,7 +104,7 @@ public class LoginUsersProc extends HttpServlet {
 				memberVO.setUserpw(rs.getString("userpw"));
 				memberVO.setName(rs.getString("name"));
 				memberVO.setEmail(rs.getString("email"));
-				memberVO.setReg_dt(rs.getString("reg_dt"));
+				memberVO.setReg_dt(rs.getString("time"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
