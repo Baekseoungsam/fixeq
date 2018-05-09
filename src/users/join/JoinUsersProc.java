@@ -70,7 +70,7 @@ public class JoinUsersProc extends HttpServlet {
 		mysql.insert(query, conn);
 
 		
-		responseMessage(res, "회원가입을 축하합니다.", "/main.jsp");
+		responseMessage(res, "회원가입을 축하합니다.", "/page/main.jsp");
 		
 	}
 	

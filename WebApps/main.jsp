@@ -22,7 +22,7 @@ if(memberVO == null){
 <!-- ============================================================================================================================= -->
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="#">Fixeq</a>
+	  <a class="navbar-brand" href="#" >Fixeq</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -35,10 +35,8 @@ if(memberVO == null){
 	      <li class="nav-item">
 	        <a class="nav-link" href="/board/InsertForm.do">Board</a>
 	      </li>
-	      
-
 	    </ul>
-		  </div>
+	  </div>
 	</nav>
 
 

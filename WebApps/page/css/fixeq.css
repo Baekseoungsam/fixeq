@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Nanum Gothic';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-family: 'Nanum Gothic';
+}
+
+hr.star-light,
+hr.star-dark {
+  max-width: 30rem;
+  padding: 0;
+  text-align: center;
+  border: none;
+  border-top: solid 0.10rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+header.masthead {
+  padding-top: calc(6rem + 70px);
+  padding-bottom: 6rem;
+}
+
+header.masthead h1 {
+  font-size: 5rem;
+  line-height: 3rem;
+}
+
+header.masthead h2 {
+  font-size: 1.5	rem;
+  font-family: 'Lato';
+}
+
+.bg-primary{
+    background: linear-gradient(to bottom right, #ea8676 40%, #000000 129%);
+}
+<!--#3E82E0!-->
+.bg-dark {
+  background-color: #2C3E50 !important;
+}
+
+#mainNav {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  font-weight: 700;
+  font-family: 'Lato';
+}
+
+  #mainNav .navbar-nav {
+  margin-top: 1rem;
+  letter-spacing: 0.0625rem;
+}
+
+#mainNav .navbar-brand {
+  color: #fff;
+    font-size: 2em;
+    -webkit-transition: font-size 0.3s;
+    -moz-transition: font-size 0.3s;
+    transition: font-size 0.3s;
+  }
+  
+  #mainNav .navbar-nav li.nav-item a.nav-link {
+  color: #fff;
+}
+  
+  #mainNav .navbar-nav li.nav-item a.nav-link:hover{
+    color: #18BC9C;
+  }
+  
+ #mainFooter   {
+  padding-top: 0rem;
+  padding-bottom: 5rem;
+  background-color: #2C3E50;
+  color: #fff;
+
+  font-weight: 700;
+  font-family: 'East Sea Dokdo';
+}
+
+#mainFooter .navbar-nav {
+    font-size: 2em;
+    -webkit-transition: font-size 0.1s;
+    -moz-transition: font-size 0.1s;
+    transition: font-size 0.1s;
+}
+
+  #mainFooter .navbar-brand {
+    font-size: 4em;
+    -webkit-transition: font-size 0.1s;
+    -moz-transition: font-size 0.1s;
+    transition: font-size 0.1s;
+  }
