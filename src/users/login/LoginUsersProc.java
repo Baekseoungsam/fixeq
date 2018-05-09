@@ -59,7 +59,7 @@ public class LoginUsersProc extends HttpServlet {
 				_MESSAGE = memberVO.getName()+ " 회원님의 로그인이 완료되었습니다.";
 				HttpSession session = req.getSession();
 				session.setAttribute("memberVO", memberVO);
-				_URL = "/main.jsp";
+				_URL = "/page/main.jsp";
 
 			}else { // 비밀번호가 일치하지 않을때
 				_MESSAGE = "아이디 혹은 비밀번호가 일치하지 않습니다. <br> 입력하세요";

@@ -29,7 +29,7 @@ public class JoinUsersForm extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher rd = req.getRequestDispatcher("/users/join/joinForm.jsp");
+		RequestDispatcher rd = req.getRequestDispatcher("/users/join/join.jsp");
 		rd.forward(req, res);
 	}
 

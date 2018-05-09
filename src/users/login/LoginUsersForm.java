@@ -29,7 +29,7 @@ public class LoginUsersForm extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher rd = request.getRequestDispatcher("/users/login/loginForm.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/users/login/login.jsp");
 		rd.forward(request, response);
 	}
 

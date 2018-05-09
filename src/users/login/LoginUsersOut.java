@@ -35,7 +35,7 @@ public class LoginUsersOut extends HttpServlet {
 		HttpSession session = request.getSession();
 		MemberBean memberVO = (MemberBean)session.getAttribute("memberVO");
 		String _MESSAGE = "로그아웃 되었습니다.";
-		String _URL = "/users/login/loginForm.do";
+		String _URL = "/page/main.jsp?#";
 		
 		session.removeAttribute("memberVO");
 		response.setContentType("text/html");

@@ -29,6 +29,9 @@ public class boardInsertForm extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		/*
+		 * 문제있음 requestDistpatcher 수정 필요.
+		 */
 		RequestDispatcher rd = request.getRequestDispatcher("/page/users/join/join.jsp");
 		rd.forward(request, response);
 	}
