@@ -10,6 +10,7 @@ import java.sql.SQLException;
 
 public class MySQLConnector {
 
+
 	private String dbURL = "jdbc:mysql://myinstance.ca5naeffrrc7.ap-northeast-2.rds.amazonaws.com:3306/fixeqdatabase";
 	private String dbUSER = "fixeqdbinstance";
 	private String dbPASSWORD = "gustjr12";
@@ -59,11 +60,14 @@ public class MySQLConnector {
 		}catch (SQLException e) {
 			System.out.println("MySQL 연결정보를 불러올 수 없습니다");
 		}
-		Boolean resultValue = null;
+		Boolean resultValue = true;
 		try {
 			resultValue = stmt.execute(query);
+			
 		}catch (Exception e) {
 			System.out.println("MySQL query문이 올바르지 않습니다.");
+			System.out.println(query);
+			resultValue = false;
 		}
 		
 		return resultValue;

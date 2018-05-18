@@ -9,7 +9,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-
 	<!-- 부트스트랩 CSS 내식대로 변경 -->
   <link href="/page/css/fixeq.css" rel="stylesheet">
 	<!-- 구글 폰트 API 추가 -->
@@ -20,30 +19,20 @@
 <title>메인페이지</title>
 </head>
 <body>
-
-
 <!-- 탑 인클루드 -->
 <!-- 
  <iframe src="/page/navigation.jsp"  frameborder="0" scrolling="no"	width="100%"  height="100"></iframe>
  -->
 <jsp:include page="/page/navigation.jsp"></jsp:include>
- 
- 
- 
  <!-- 
 <iframe src="/page/header.jsp"  frameborder="0" scrolling="no"	width="100%" height="1050"></iframe>
   -->
 <jsp:include page="/page/header.jsp"></jsp:include>
-
-
-
 <!-- 이거는 스크롤 태그로 써먹을거. 누르면 해당 위치로. -->
-
 <!-- 바텀 인클루드 -->
 <!-- 
 <iframe src="/page/footer.jsp" frameborder="0" scrolling="no" width="100%"  height="200"></iframe>
  -->
 <jsp:include page="/page/footer.jsp"></jsp:include>
- 
 </body>
 </html>

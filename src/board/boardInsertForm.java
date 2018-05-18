@@ -28,11 +28,13 @@ public class boardInsertForm extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+
 		// TODO Auto-generated method stub
 		/*
 		 * 문제있음 requestDistpatcher 수정 필요.
 		 */
-		RequestDispatcher rd = request.getRequestDispatcher("/page/users/join/join.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/board/board.jsp");
 		rd.forward(request, response);
 	}
 

@@ -28,6 +28,8 @@ public class JoinUsersForm extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+
 		// TODO Auto-generated method stub
 		RequestDispatcher rd = req.getRequestDispatcher("/users/join/join.jsp");
 		rd.forward(req, res);

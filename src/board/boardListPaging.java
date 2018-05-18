@@ -1,4 +1,4 @@
-package users.login;
+package board;
 
 import java.io.IOException;
 
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class LoginUsersForm
+ * Servlet implementation class boardPaging
  */
-@WebServlet("/users/login/loginForm.do")
-public class LoginUsersForm extends HttpServlet {
+@WebServlet("/board/List.do")
+public class boardListPaging extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginUsersForm() {
+    public boardListPaging() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,8 +31,12 @@ public class LoginUsersForm extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		// TODO Auto-generated method stub
-		RequestDispatcher rd = request.getRequestDispatcher("/users/login/login.jsp");
-		rd.forward(request, response);
+		//		RequestDispatcher rd = request.getRequestDispatcher("/nav-site/boardlist.jsp?pagingStr=1");
+		//		RequestDispatcher rd = request.getRequestDispatcher("/board/summerNoteForm.jsp");
+		response.sendRedirect("/nav-site/boardlist.jsp?pagingStr=1");
+
+
+		//		rd.forward(request, response);
 	}
 
 	/**

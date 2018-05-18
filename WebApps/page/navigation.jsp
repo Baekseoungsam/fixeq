@@ -12,7 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 	
 	<!-- 부트스트랩 CSS 내식대로 변경 -->
-  <link href="/css/fixeq.css" rel="stylesheet">
+  <link href="/page/css/fixeq.css" rel="stylesheet">
 	<!-- 구글 폰트 API 추가 -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=East Sea Dokdo:400,700" rel="stylesheet" type="text/css">
@@ -21,7 +21,7 @@
 </head>
 <body>
 
- 	<nav class="navbar navbar-expand-lg navbar-light bg-dark text-uppercase" id="mainNav">
+ 	<nav class="container-fluid navbar navbar-expand-lg navbar-light bg-dark text-uppercase" id="mainNav">
 	  <a class="navbar-brand nav-link" href="/page/main.jsp" >Fixeq</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
@@ -58,7 +58,7 @@
 	        <a class="nav-link" href="영화 목록을 보여줄 리스트">movie</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="각 영화의 태그별로 글들을 작성할 게시판">board</a>
+	        <a class="nav-link" href="/board/List.do">board</a>
 	      </li>
 	    </ul>
 	  </div>

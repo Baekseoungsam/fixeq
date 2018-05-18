@@ -41,6 +41,8 @@ public class JoinUsersProc extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+
 		// TODO Auto-generated method stub
 		String _USERID = useridValidation(req, res);
 		if(_USERID == null) return;
@@ -110,9 +112,6 @@ public class JoinUsersProc extends HttpServlet {
 						// TODO Auto-generated catch block
 						System.out.println("쿼리문에 에러을 확인하세요. query : " + query);
 					}
-				
-				
-			
 			}
 		}
 		
@@ -158,9 +157,6 @@ public class JoinUsersProc extends HttpServlet {
 						// TODO Auto-generated catch block
 						System.out.println("쿼리문에 에러을 확인하세요. query : " + query);
 					}
-				
-				
-			
 			}
 		}
 		if(chkpwValid == null) {
@@ -205,9 +201,6 @@ public class JoinUsersProc extends HttpServlet {
 						// TODO Auto-generated catch block
 						System.out.println("쿼리문에 에러을 확인하세요. query : " + query);
 					}
-				
-				
-			
 			}
 		}
 		

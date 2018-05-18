@@ -31,6 +31,8 @@ public class LoginUsersOut extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		MemberBean memberVO = (MemberBean)session.getAttribute("memberVO");

@@ -44,6 +44,8 @@ public class LoginUsersProc extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+
 		// TODO Auto-generated method stub
 		String _USERID = req.getParameter("userid");
 		String _USERPW = req.getParameter("userpw");
