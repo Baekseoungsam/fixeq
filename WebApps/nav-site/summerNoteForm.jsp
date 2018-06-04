@@ -59,6 +59,8 @@
 	 	</select>
 	  </div>
 	  	  
+	  	  
+	  	  
 	  <div class="form-group">
 	    <label for="contents">Contents</label>
 	    <textarea name="text" class="summernote" id="contents" title="Contents"  name="content"></textarea>

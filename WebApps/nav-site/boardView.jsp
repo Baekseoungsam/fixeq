@@ -1,3 +1,4 @@
+<%@page import="board.vo.BoardViewBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,29 +10,61 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
 	<!-- 부트스트랩 CSS 내식대로 변경 -->
   <link href="/page/css/fixeq.css" rel="stylesheet">
 	<!-- 구글 폰트 API 추가 -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=East Sea Dokdo:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nanum Gothic" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
 
-<title>메인페이지</title>
+<script>
+function moveBoardList(){
+	location.href="/board/List.do";
+}
+
+function moveBoardUpdate(){
+	location.href="";
+}
+
+
+function moveBoardDelete(){
+	location.href="";
+}
+
+</script>	
+
+<title>글보기</title>
 </head>
+<%BoardViewBean view = (BoardViewBean)request.getAttribute("view"); %>
 <body>
-<!-- 탑 인클루드 -->
-<!-- 
- <iframe src="/page/navigation.jsp"  frameborder="0" scrolling="no"	width="100%"  height="100"></iframe>
- -->
-<jsp:include page="/page/navigation.jsp"></jsp:include>
- <!-- 
-<iframe src="/page/header.jsp"  frameborder="0" scrolling="no"	width="100%" height="1050"></iframe>
-  -->
-<jsp:include page="/page/header.jsp"></jsp:include>
-<!-- 바텀 인클루드 -->
-<!-- 
-<iframe src="/page/footer.jsp" frameborder="0" scrolling="no" width="100%"  height="200"></iframe>
- -->
-<jsp:include page="/page/footer.jsp"></jsp:include>
+
+<div class="container-fluid">
+	<table class="table">
+	  <thead class="thead-dark">
+	    <tr>
+	      <th scope="col">제목</th>
+	      <th colspan="3" scope="col"><%=view.getTitle() %></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <th scope="row">작성자</th>
+	      <td colspan="3"><%=view.getWriter() %></td>
+	    </tr>
+	    <tr>
+	      <th scope="row">내용</th>
+	      <td width="80%" height="400px"><%=view.getContent() %></td>
+	    </tr>
+	    <tr>
+	    	<td colspan="4" align="right"><button type="button" class="btn btn-primary" onclick="moveBoardList()">목록으로</button>
+	    	<button type="button" class="btn btn-primary">글수정</button>
+	    	<button type="button" class="btn btn-primary">글삭제</button></td>
+	    </tr>
+	  </tbody>
+	</table>
+
+</div>
 </body>
 </html>

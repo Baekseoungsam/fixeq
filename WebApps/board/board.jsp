@@ -74,6 +74,16 @@
 					
 	시청여부	<input type="radio" checked name="history" value="1">O
 					<input type="radio"  name="history" value="0">X
+					
+					
+	점수 <select name = "score">
+				<option value="">점수선택</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
 	<br>
 	
 	<textarea rows="10" cols=260  name="content"></textarea>

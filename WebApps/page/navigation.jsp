@@ -55,7 +55,7 @@
 	        <a class="nav-link" href="/nav-site/contact.jsp">contact</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href=/nav-site/movie2.jsp>movie</a>
+	        <a class="nav-link" href=/nav-site/movie.jsp>movie</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="/board/List.do">board</a>

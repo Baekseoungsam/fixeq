@@ -59,7 +59,7 @@
  			%>
  		    <tr>
  		      <th scope="row" style="text-align:center;"><%= rs.getInt("idx") %></th>
- 		      <td colspan="2"><a><%= rs.getString("title") %></a></td>
+ 		      <td colspan="2"><a href="/board/viewForm.do?idx=<%=rs.getString("idx")%>"><%= rs.getString("title") %></a></td>
  		      <td></td>
  		      <td><%= rs.getString("writer") %></td>
  		      <td><%=rs.getString("time") %></td>

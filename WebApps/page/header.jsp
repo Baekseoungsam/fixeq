@@ -29,6 +29,5 @@
         <h2 class="font-weight-light mb-0">Would you like to watch a movie? </h2>
       </div>
     </header>
-
 </body>
 </html>
