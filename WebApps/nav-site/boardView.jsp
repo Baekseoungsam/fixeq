@@ -45,13 +45,18 @@ function moveBoardDelete(){
 	  <thead class="thead-dark">
 	    <tr>
 	      <th scope="col">제목</th>
-	      <th colspan="3" scope="col"><%=view.getTitle() %></th>
+	      <th colspan="2" scope="col"><%=view.getTitle() %></th>
+	      <% if(view.getHistory().equals("1") ) {%>
+		<th style="color: yellow;">시청</th>     
+		<%}else{%>
+		<th style="color: red;">미시청</th>
+		<%} %>     
 	    </tr>
 	  </thead>
 	  <tbody>
 	    <tr>
 	      <th scope="row">작성자</th>
-	      <td colspan="3"><%=view.getWriter() %></td>
+	      <td colspan="3"><%=view.getWriterid() %></td>
 	    </tr>
 	    <tr>
 	      <th scope="row">내용</th>

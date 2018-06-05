@@ -53,7 +53,7 @@
  		<!-- 보드VO 사용 -->
  		<%
  		MySQLConnector mysql = new MySQLConnector();
- 		String query = "select * from board order by time desc";
+ 		String query = "select * from board2 order by time desc";
  		ResultSet rs = mysql.select(query, mysql.getConnection());
  		while(rs.next()){
  			%>
@@ -61,7 +61,7 @@
  		      <th scope="row" style="text-align:center;"><%= rs.getInt("idx") %></th>
  		      <td colspan="2"><a href="/board/viewForm.do?idx=<%=rs.getString("idx")%>"><%= rs.getString("title") %></a></td>
  		      <td></td>
- 		      <td><%= rs.getString("writer") %></td>
+ 		      <td><%= rs.getString("writerid") %></td>
  		      <td><%=rs.getString("time") %></td>
  		    </tr>
  		    <%

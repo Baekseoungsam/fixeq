@@ -1,3 +1,6 @@
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="jdbc.MySQLConnector"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,6 +20,53 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum Gothic" rel="stylesheet">
 <title>영화 게시판</title>
 
+
+
+<style type="text/css">
+
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+
+</style>
 </head>
 <body>
 
@@ -24,8 +74,44 @@
 
 
 <div class="card-group" >
-  <div class="card">
-    <img class="card-img-top" src="/nav-site/homeComing.jpg" alt="Card image cap" style="height:800px">
+  <div class="card container">
+    <img class="card-img-top image" src="/nav-site/homeComing.jpg" alt="Card image cap" style="height:800px">
+      <div class="middle">
+	    <div class="text">
+	<%
+	int rating1 = 0; // 평점의 값. 결과값으로 나올것.
+	String rating2 = null; // 평점의 값. 페이지로 보낼것.
+	String receiveRating1 = null; // DB에서 받아오는 평점은 스트링값.
+	int receiveRating2 =0; // receiveRating1에서 DB 받아오는 평점을 정수화.
+	int count=0;
+
+	
+	MySQLConnector mysql = new MySQLConnector();
+	String query = "select rating from board2 where genre='spiderman'";
+/* 	query.replace("%genre%", "spiderman");
+ */	
+	ResultSet rs = mysql.select(query, mysql.getConnection());
+	
+	try{
+		while(rs.next()){
+			receiveRating1 = rs.getString("rating");
+			receiveRating2 = Integer.parseInt(receiveRating1);
+			rating1 += receiveRating2;
+			count++;
+		}	
+	}catch(SQLException e) {
+		// TODO Auto-generated catch block
+		System.out.println("쿼리문 : " + query);
+	}
+	
+	rating1 = rating1/count;
+	
+   %>
+   			<h3>평가자 수  <%=count %></h3>
+   			<h3><%=rating1%> / 5</h3>
+		</div>
+	  </div>
+    
     <div class="card-body">
       <h2 class="card-title">스파이더맨 홈커밍</h2>
 	  <h4>어벤져스가 되려면 시험 같은 거 봐요?</h4>
@@ -43,8 +129,45 @@
     </div>
   </div>
   
-  <div class="card">
-    <img class="card-img-top" src="/nav-site/strange.jpg" alt="Card image cap" style="height:800px">
+  <div class="card container">
+    <img class="card-img-top image" src="/nav-site/strange.jpg" alt="Card image cap" style="height:800px">
+    
+      <div class="middle">
+	    <div class="text">
+	<%
+	rating1 = 0; // 평점의 값. 결과값으로 나올것.
+	 rating2 = null; // 평점의 값. 페이지로 보낼것.
+	 receiveRating1 = null; // DB에서 받아오는 평점은 스트링값.
+	 receiveRating2 =0; // receiveRating1에서 DB 받아오는 평점을 정수화.
+	 count=0;
+
+	
+	 query = "select rating from board2 where genre='drstrange'";
+/* 	query.replace("%genre%", "spiderman");
+ */	
+	 rs = mysql.select(query, mysql.getConnection());
+	
+	try{
+		while(rs.next()){
+			receiveRating1 = rs.getString("rating");
+			receiveRating2 = Integer.parseInt(receiveRating1);
+			rating1 += receiveRating2;
+			count++;
+		}	
+	}catch(SQLException e) {
+		// TODO Auto-generated catch block
+		System.out.println("쿼리문 : " + query);
+	}
+	
+	rating1 = rating1/count;
+	
+   %>
+   			<h3>평가자 수  <%=count %></h3>
+   			<h3><%=rating1%> / 5</h3>
+		</div>
+	  </div>
+    
+    
     <div class="card-body">
       <h2 class="card-title">닥터 스트레인지</h2>
 	  <h4>모든 것을 초월한, 역사상 가장 강력한 히어로가 온다!</h4>
@@ -62,8 +185,46 @@
     </div>
   </div>
   
-  <div class="card">
-    <img class="card-img-top" src="/nav-site/ironMan.jpg" alt="Card image cap" style="height:800px">
+  <div class="card container">
+    <img class="card-img-top image" src="/nav-site/ironMan.jpg" alt="Card image cap" style="height:800px">
+    
+    
+      <div class="middle">
+	    <div class="text">
+	<%
+	rating1 = 0; // 평점의 값. 결과값으로 나올것.
+	 rating2 = null; // 평점의 값. 페이지로 보낼것.
+	 receiveRating1 = null; // DB에서 받아오는 평점은 스트링값.
+	 receiveRating2 =0; // receiveRating1에서 DB 받아오는 평점을 정수화.
+	 count=0;
+
+	
+	 query = "select rating from board2 where genre='ironman'";
+/* 	query.replace("%genre%", "spiderman");
+ */	
+	 rs = mysql.select(query, mysql.getConnection());
+	
+	try{
+		while(rs.next()){
+			receiveRating1 = rs.getString("rating");
+			receiveRating2 = Integer.parseInt(receiveRating1);
+			rating1 += receiveRating2;
+			count++;
+		}	
+	}catch(SQLException e) {
+		// TODO Auto-generated catch block
+		System.out.println("쿼리문 : " + query);
+	}
+	
+	rating1 = rating1/count;
+	
+   %>
+   			<h3>평가자 수  <%=count %></h3>
+   			<h3><%=rating1%> / 5</h3>
+		</div>
+	  </div>
+    
+    
     <div class="card-body">
       <h2 class="card-title">아이언 맨</h2>
 	  <h4>하이테크 슈퍼 히어로의 탄생 | 이제 업그레이드는 끝났다</h4>

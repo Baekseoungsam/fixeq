@@ -36,7 +36,7 @@ public class boardViewForm extends HttpServlet {
 		// TODO Auto-generated method stub
 		RequestDispatcher rd = request.getRequestDispatcher("/nav-site/boardView.jsp");
 		MySQLConnector mysql = new MySQLConnector();
-		String query = "select * from board where idx = %idx% order by time desc";
+		String query = "select * from board2 where idx = %idx% order by time desc";
 		
 		// 일단 여기에 idx 왜 받는지 추적.왜냐? idx를 주소창에 띄우게끔 하므로.
 		String idx = request.getParameter("idx");
@@ -48,8 +48,12 @@ public class boardViewForm extends HttpServlet {
 		try {
 			while(rs.next()) {
 				bean.setTitle(rs.getString("title"));
-				bean.setWriter(rs.getString("writer"));
 				bean.setContent(rs.getString("content"));
+				bean.setWriterid(rs.getString("writerid"));
+				bean.setWriterpw(rs.getString("writerpw"));
+				bean.setGenre(rs.getString("genre"));
+				bean.setRating(rs.getString("rating"));
+				bean.setHistory(rs.getString("history"));
 			}
 			
 		}catch (SQLException e) {

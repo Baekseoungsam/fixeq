@@ -1,25 +1,34 @@
 package board.vo;
 
 public class BoardViewBean {
-
-	private String idx = null;
-	private String writer = null;
-	private String title = null;
-	private String content = null;
-	private String rating = null;
-	private String drama = null;
 	
-	public String getIdx() {
-		return idx;
+/*	String writerid = memberVO.getName();
+	String writerpw = request.getParameter("writerpw"); // 비밀번호
+	String title = request.getParameter("title");// 제목
+	String content = request.getParameter("content");// 내용
+	String genre = request.getParameter("genre"); // 장르
+	String rating = request.getParameter("score"); // 점수
+	String history = request.getParameter("history"); // 시청내역
+*/
+	String writerid= null;
+	String writerpw = null;
+	String title = null;
+	String content = null;
+	String genre = null;
+	String rating = null;
+	String history = null;
+	
+	public String getWriterid() {
+		return writerid;
 	}
-	public void setIdx(String idx) {
-		this.idx = idx;
+	public void setWriterid(String writerid) {
+		this.writerid = writerid;
 	}
-	public String getWriter() {
-		return writer;
+	public String getWriterpw() {
+		return writerpw;
 	}
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setWriterpw(String writerpw) {
+		this.writerpw = writerpw;
 	}
 	public String getTitle() {
 		return title;
@@ -33,18 +42,24 @@ public class BoardViewBean {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
 	public String getRating() {
 		return rating;
 	}
 	public void setRating(String rating) {
 		this.rating = rating;
 	}
-	public String getDrama() {
-		return drama;
+	public String getHistory() {
+		return history;
 	}
-	public void setDrama(String drama) {
-		this.drama = drama;
+	public void setHistory(String history) {
+		this.history = history;
 	}
 	
-
+	
 }

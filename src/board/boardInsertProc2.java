@@ -47,10 +47,14 @@ public class boardInsertProc2 extends HttpServlet {
 		MemberBean memberVO = (MemberBean)session.getAttribute("memberVO");
 		if(memberVO != null) {
 			// 로그인 한 이후에 접근.
-			String writer = memberVO.getName();// 작성자
+			//String writer = memberVO.getName();// 작성자
+			String writerid = memberVO.getName();
+			String writerpw = request.getParameter("writerpw"); // 비밀번호
 			String title = request.getParameter("title");// 제목
 			String content = request.getParameter("content");// 내용
-			String drama = request.getParameter("genre");
+			String genre = request.getParameter("genre"); // 장르
+			String rating = request.getParameter("score"); // 점수
+			String history = request.getParameter("history"); // 시청내역
 				
 				if(title.trim().length()==0) {
 					//제목을 입력하지 않았거나 공백으로 제출하였을때
@@ -77,12 +81,19 @@ public class boardInsertProc2 extends HttpServlet {
 					MySQLConnector mysql = new MySQLConnector();
 					Connection conn = mysql.getConnection();
 					
-					String query = "insert into board (writer,title,content,rating,drama,time) values ('%writer%','%title%','%content%',1,'%drama%',SYSDATE())";
+				//	String query = "insert into board (writer,title,content,rating,drama,time) values ('%writer%','%title%','%content%',1,'%drama%',SYSDATE())";
 					
-					query = query.replace("%writer%", writer);
+					String query = "insert into board2 (title,content,writerid,writerpw,genre,rating,history,time) values ('%title%','%content%','%writerid%','%writerpw%','%genre%','%rating%','%history%',SYSDATE())";
+
+					
+					query = query.replace("%writerid%", writerid);
+					query = query.replace("%writerpw%", writerpw);
 					query = query.replace("%title%", title);
 					query = query.replace("%content%", content);
-					query = query.replace("%drama%", drama);
+					query = query.replace("%genre%", genre);
+					query = query.replace("%rating%", rating);
+					query = query.replace("%history%", history);
+
 					
 					if(mysql.insert(query, conn)) {
 						System.out.println("글쓰기가 성공하였습니다.");

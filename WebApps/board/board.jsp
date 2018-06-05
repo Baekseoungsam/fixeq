@@ -59,22 +59,21 @@
 			<%=writer %> 
 	<br>
 	<br>
+	
+	비밀번호 <input type="password"  name="writerpw">
+	
+	<br>
 	<br>
 	
-	장르 
-					<select name="genre">
-						<option value="">장르선택</option>
-						<option value="drama">드라마</option>
-						<option value="comedy">예능</option>
-						<option value="movie">영화</option>
-						<option value="music">음악</option>
-						<option value="documentary">다큐</option>
-						<option value="webtoon">웹툰</option>
-					</select>
 					
-	시청여부	<input type="radio" checked name="history" value="1">O
-					<input type="radio"  name="history" value="0">X
 					
+	매체제목<select name = "genre">
+				<option value="">매체선택</option>
+				<option value="spiderman">spiderman</option>
+				<option value="drstrange">dr.starnge</option>
+				<option value="ironman">ironman</option>
+			</select>
+	
 					
 	점수 <select name = "score">
 				<option value="">점수선택</option>
@@ -84,6 +83,11 @@
 				<option value="4">4</option>
 				<option value="5">5</option>
 			</select>
+			
+	시청여부	<input type="radio" checked name="history" value="1">O
+					<input type="radio"  name="history" value="0">X
+	<br>
+	<br>
 	<br>
 	
 	<textarea rows="10" cols=260  name="content"></textarea>
