@@ -63,7 +63,7 @@ public class boardInsertProc2 extends HttpServlet {
 					PrintWriter out = response.getWriter();
 					out.write("<script>");
 					out.write("alert('제목을 작성하여야 합니다.');");
-					out.write("location.href='/board/InsertForm.do';");
+					out.write("location.href='/fixeq/board/InsertForm.do';");
 					out.write("</script>");
 				}else if(content.trim().length()==0) {
 					//내용을 입력하지 않았거나 공백으로 제출하였을때
@@ -72,7 +72,7 @@ public class boardInsertProc2 extends HttpServlet {
 					PrintWriter out = response.getWriter();
 					out.write("<script>");
 					out.write("alert('내용을 작성하여야 합니다.');");
-					out.write("location.href='/board/InsertForm.do';");
+					out.write("location.href='/fixeq/board/InsertForm.do';");
 					out.write("</script>");
 				}else {
 					//제목과 내용을 입력하였을 경우이니 데이터가 올바르게 전달되었을때
@@ -101,7 +101,7 @@ public class boardInsertProc2 extends HttpServlet {
 					}else {
 						System.out.println(query);
 						System.out.println("글쓰기가 실패하였습니다.");
-						response.sendRedirect("/board/InsertForm.do");
+						response.sendRedirect("/fixeq/board/InsertForm.do");
 
 					}
 		}	
@@ -111,7 +111,7 @@ public class boardInsertProc2 extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.write("<script>");
 		out.write("alert('로그인 후 사용 가능합니다.');");
-		out.write("location.href='/users/login/loginForm.do';");
+		out.write("location.href='/fixeq/users/login/loginForm.do';");
 		out.write("</script>");
 	}
 

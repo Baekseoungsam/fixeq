@@ -12,7 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 	
 	<!-- 부트스트랩 CSS 내식대로 변경 -->
-  <link href="/page/css/fixeq.css" rel="stylesheet">
+  <link href="/fixeq/page/css/fixeq.css" rel="stylesheet">
 	<!-- 구글 폰트 API 추가 -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=East Sea Dokdo:400,700" rel="stylesheet" type="text/css">
@@ -22,7 +22,7 @@
 <body>
 
  	<nav class="container-fluid navbar navbar-expand-lg navbar-light bg-dark text-uppercase" id="mainNav">
-	  <a class="navbar-brand nav-link" href="/page/main.jsp" >Fixeq</a>
+	  <a class="navbar-brand nav-link" href="/fixeq/page/main.jsp" >Fixeq</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
@@ -35,16 +35,16 @@
 				if(memberVO == null){
 			%>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/users/join/joinForm.do">join</a>
+	        <a class="nav-link" href="/fixeq/users/join/joinForm.do">join</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/users/login/loginForm.do">login</a>
+	        <a class="nav-link" href="/fixeq/users/login/loginForm.do">login</a>
 	      </li>
 			<%		
 				}else{
 			%>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/users/login/logOut.do">logout</a>
+	        <a class="nav-link" href="/fixeq/users/login/logOut.do">logout</a>
 	      </li>
 			<%	
 				}
@@ -52,13 +52,13 @@
 	      
 	      
 	      <li class="nav-item">
-	        <a class="nav-link" href="/nav-site/contact.jsp">contact</a>
+	        <a class="nav-link" href="/fixeq/nav-site/contact.jsp">contact</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href=/nav-site/movie.jsp>movie</a>
+	        <a class="nav-link" href=/fixeq/nav-site/movie.jsp>movie</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="/board/List.do">board</a>
+	        <a class="nav-link" href="/fixeq/board/List.do">board</a>
 	      </li>
 	    </ul>
 	  </div>

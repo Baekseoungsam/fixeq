@@ -15,7 +15,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
 	<!-- 부트스트랩 CSS 내식대로 변경 -->
-  <link href="/page/css/fixeq.css" rel="stylesheet">
+  <link href="/fixeq/page/css/fixeq.css" rel="stylesheet">
 	<!-- 구글 폰트 API 추가 -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=East Sea Dokdo:400,700" rel="stylesheet" type="text/css">
@@ -31,7 +31,7 @@
  -->
 <jsp:include page="/page/navigation.jsp"></jsp:include>
 
-<form action="/board/InsertProc2.do" method="post">
+<form action="/fixeq/board/InsertProc2.do" method="post">
 	<br>
 	<br>
 
@@ -49,7 +49,7 @@
 				PrintWriter out2 = response.getWriter();
 				out2.write("<script>");
 				out2.write("alert('로그인이 필요합니다.');");
-				out2.write("location.href='/users/login/loginForm.do';");
+				out2.write("location.href='/fixeq/users/login/loginForm.do';");
 				out2.write("</script>");
 			
 			}

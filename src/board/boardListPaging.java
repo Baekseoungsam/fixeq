@@ -33,7 +33,7 @@ public class boardListPaging extends HttpServlet {
 		// TODO Auto-generated method stub
 		//		RequestDispatcher rd = request.getRequestDispatcher("/nav-site/boardlist.jsp?pagingStr=1");
 		//		RequestDispatcher rd = request.getRequestDispatcher("/board/summerNoteForm.jsp");
-		response.sendRedirect("/nav-site/boardlist.jsp?pagingStr=1");
+		response.sendRedirect("/fixeq/nav-site/boardlist.jsp?pagingStr=1");
 
 
 		//		rd.forward(request, response);

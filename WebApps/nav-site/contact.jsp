@@ -11,7 +11,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
 	<!-- 부트스트랩 CSS 내식대로 변경 -->
-  <link href="/page/css/fixeq.css" rel="stylesheet">
+  <link href="/fixeq/page/css/fixeq.css" rel="stylesheet">
 	<!-- 구글 폰트 API 추가 -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=East Sea Dokdo:400,700" rel="stylesheet" type="text/css">

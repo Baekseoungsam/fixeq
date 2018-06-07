@@ -13,7 +13,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
 	<!-- 부트스트랩 CSS 내식대로 변경 -->
-  <link href="/page/css/fixeq.css" rel="stylesheet">
+  <link href="/fixeq/page/css/fixeq.css" rel="stylesheet">
 	<!-- 구글 폰트 API 추가 -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=East Sea Dokdo:400,700" rel="stylesheet" type="text/css">
@@ -22,7 +22,7 @@
 	
 	<script>
 	function moveBoardInsert(){
-		location.href="/board/InsertForm.do";
+		location.href="/fixeq/board/InsertForm.do";
 	}
 	</script>
 
@@ -59,7 +59,7 @@
  			%>
  		    <tr>
  		      <th scope="row" style="text-align:center;"><%= rs.getInt("idx") %></th>
- 		      <td colspan="2"><a href="/board/viewForm.do?idx=<%=rs.getString("idx")%>"><%= rs.getString("title") %></a></td>
+ 		      <td colspan="2"><a href="/fixeq/board/viewForm.do?idx=<%=rs.getString("idx")%>"><%= rs.getString("title") %></a></td>
  		      <td></td>
  		      <td><%= rs.getString("writerid") %></td>
  		      <td><%=rs.getString("time") %></td>
@@ -114,7 +114,7 @@
 	<% 
 		}else{			
 	%>
-		<a href="/nav-site/boardlist.jsp?pagingStr=<%=i%>">	 <%= i %></a>  
+		<a href="/fixeq/nav-site/boardlist.jsp?pagingStr=<%=i%>">	 <%= i %></a>  
 	<% 
 		}
 	}

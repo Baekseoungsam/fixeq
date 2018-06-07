@@ -72,7 +72,7 @@ public class JoinUsersProc extends HttpServlet {
 		mysql.insert(query, conn);
 
 		
-		responseMessage(res, "회원가입을 축하합니다.", "/page/main.jsp");
+		responseMessage(res, "회원가입을 축하합니다.", "/fixeq/page/main.jsp");
 		
 	}
 	
@@ -86,11 +86,11 @@ public class JoinUsersProc extends HttpServlet {
 		
 		if( _USERID==null  || _USERID.trim().length()==0) { // 아이디를 입력하지 않았을때
 			_MESSAGE = "아이디를 작성해야합니다.";
-			_URL = "/users/join/joinForm.do";
+			_URL = "/fixeq/users/join/joinForm.do";
 		}else { // 일단 아이디를 입력했을때
 			if(_USERID.length() < 5) { 
 				_MESSAGE = "아이디는 5자 이상 작성하여야 합니다.";
-				_URL = "/users/join/joinForm.do";
+				_URL = "/fixeq/users/join/joinForm.do";
 			}else {
 				// DB 객체 초기화
 				MySQLConnector mysql = new MySQLConnector();
@@ -104,7 +104,7 @@ public class JoinUsersProc extends HttpServlet {
 					try {
 						if(rs.next()) { // 중복일때
 							_MESSAGE = "이미 존재하는 아이디입니다.";
-							_URL = "/users/join/joinForm.do";
+							_URL = "/fixeq/users/join/joinForm.do";
 						}else { // 중복이 아닌 경우
 							chkidValid = _USERID;
 						}
@@ -131,11 +131,11 @@ public class JoinUsersProc extends HttpServlet {
 		
 		if( _USERPW==null  || _USERPW.trim().length()==0) { // 비밀번호를 입력하지 않았을때
 			_MESSAGE = "비밀번호를 작성해야합니다.";
-			_URL = "/users/join/joinForm.do";
+			_URL = "/fixeq/users/join/joinForm.do";
 		}else { // 일단 아이디를 입력했을때
 			if(_USERPW.length() < 5) { 
 				_MESSAGE = "비밀번호는 5자 이상 작성하여야 합니다.";
-				_URL = "/users/join/joinForm.do";
+				_URL = "/fixeq/users/join/joinForm.do";
 			}else {
 				// DB 객체 초기화
 				MySQLConnector mysql = new MySQLConnector();
@@ -149,7 +149,7 @@ public class JoinUsersProc extends HttpServlet {
 					try {
 						if(rs.next()) { // 중복일때
 							_MESSAGE = "이미 존재하는 비밀번호입니다.";
-							_URL = "/users/join/joinForm.do";
+							_URL = "/fixeq/users/join/joinForm.do";
 						}else { // 중복이 아닌 경우
 							chkpwValid = _USERPW;
 						}
@@ -175,11 +175,11 @@ public class JoinUsersProc extends HttpServlet {
 		
 		if( _USEREMAIL==null  || _USEREMAIL.trim().length()==0) { // 이메일을 입력하지 않았을때
 			_MESSAGE = "이메일을 작성해야합니다.";
-			_URL = "/users/join/joinForm.do";
+			_URL = "/fixeq/users/join/joinForm.do";
 		}else { // 일단 이메일을 입력했을때
 			if(_USEREMAIL.length() < 5) { 
 				_MESSAGE = "이메일은 5자 이상 작성하여야 합니다.";
-				_URL = "/users/join/joinForm.do";
+				_URL = "/fixeq/users/join/joinForm.do";
 			}else {
 				// DB 객체 초기화
 				MySQLConnector mysql = new MySQLConnector();
@@ -193,7 +193,7 @@ public class JoinUsersProc extends HttpServlet {
 					try {
 						if(rs.next()) { // 중복일때
 							_MESSAGE = "이미 존재하는 이메일입니다.";
-							_URL = "/users/join/joinForm.do";
+							_URL = "/fixeq/users/join/joinForm.do";
 						}else { // 중복이 아닌 경우
 							chkemailValid = _USEREMAIL;
 						}

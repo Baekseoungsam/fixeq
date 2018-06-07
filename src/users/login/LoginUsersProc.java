@@ -54,18 +54,18 @@ public class LoginUsersProc extends HttpServlet {
 		
 		if(_USERID.trim().length()==0 ||_USERID==null||_USERPW==null ||_USERPW.trim().length()==0 ) {
 			_MESSAGE = "아이디와 비밀번호를 모두 입력하세요";
-			_URL = "/users/login/loginForm.do";
+			_URL = "/fixeq/users/login/loginForm.do";
 		}else { // 아이디와 비밀번호가 입력이 되었음
 			MemberBean memberVO = memberCheck(_USERID);
 			if(memberVO.getUserpw().equals(_USERPW)) { // 아이디와 같이 저장되어있는 비밀번호가 일치한다면
 				_MESSAGE = memberVO.getName()+ " 회원님의 로그인이 완료되었습니다.";
 				HttpSession session = req.getSession();
 				session.setAttribute("memberVO", memberVO);
-				_URL = "/page/main.jsp";
+				_URL = "/fixeq/page/main.jsp";
 
 			}else { // 비밀번호가 일치하지 않을때
 				_MESSAGE = "아이디 혹은 비밀번호가 일치하지 않습니다. <br> 입력하세요";
-				_URL = "/users/login/loginForm.do";
+				_URL = "/fixeq/users/login/loginForm.do";
 
 			}
 			
