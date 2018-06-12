@@ -34,7 +34,7 @@ public class boardViewForm extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher rd = request.getRequestDispatcher("/fixeq/nav-site/boardView.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/nav-site/boardView.jsp");
 		MySQLConnector mysql = new MySQLConnector();
 		String query = "select * from board2 where idx = %idx% order by time desc";
 		
